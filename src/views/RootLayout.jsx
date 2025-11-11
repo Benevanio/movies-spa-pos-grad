@@ -3,9 +3,11 @@ import Header from "../components/Header";
 
 export default function RootLayout() {
   return (
-    <>
-    <Header />
-    <Outlet />
-    </>
+    <div className="app-container">
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+    </div>
   )
 }
