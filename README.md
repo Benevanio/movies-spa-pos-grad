@@ -1,70 +1,264 @@
-# Getting Started with Create React App
+# 🎬 Movies SPA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Uma Single Page Application (SPA) moderna para explorar filmes populares, criada com React e integrada à API do The Movie Database (TMDB).
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-19.2.0-blue?logo=react)
+![React Router](https://img.shields.io/badge/React%20Router-7.9.5-red?logo=reactrouter)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?logo=javascript)
+![CSS3](https://img.shields.io/badge/CSS3-Styled-blue?logo=css3)
 
-In the project directory, you can run:
+## ✨ Características
 
-### `npm start`
+- 🎭 **Navegação por categorias**: Popular, Top Rated, Upcoming
+- 🔍 **Busca inteligente**: Encontre filmes por nome
+- 📱 **Design responsivo**: Funciona em todos os dispositivos
+- 🎨 **Interface moderna**: Glassmorphism e animações suaves
+- 🚀 **Performance otimizada**: Hooks personalizados e componentes reutilizáveis
+- 🌐 **Integração TMDB**: Dados atualizados em tempo real
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🖥️ Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Página Inicial
+- Interface de boas-vindas com cards informativos
+- Navegação intuitiva para exploração de filmes
 
-### `npm test`
+### Página de Filmes
+- Lista em grid responsivo
+- Busca em tempo real
+- Categorização por popularidade, avaliação e lançamento
+- Cards interativos com hover effects
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Detalhes do Filme
+- Informações completas: sinopse, avaliação, orçamento, duração
+- Poster em alta qualidade
+- Gêneros e produtoras como tags
+- Layout profissional com glassmorphism
 
-### `npm run build`
+## 🚀 Começando
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Pré-requisitos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js 16.0 ou superior
+- npm ou yarn
+- Chave de API do TMDB ([obtenha aqui](https://www.themoviedb.org/settings/api))
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Instalação
 
-### `npm run eject`
+1. **Clone o repositório**
+```bash
+git clone https://github.com/Benevanio/movies-spa-pos-grad.git
+cd movies-spa
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Instale as dependências**
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Configure as variáveis de ambiente**
+```bash
+# Copie o arquivo de exemplo
+cp .env.example .env
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Edite o .env e adicione sua chave da TMDB API
+REACT_APP_MOVIES_API_BEARER_TOKEN=seu_bearer_token_aqui
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. **Inicie o servidor de desenvolvimento**
+```bash
+npm start
+```
 
-## Learn More
+5. **Acesse a aplicação**
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🛠️ Tecnologias Utilizadas
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Frontend
+- **React 19.2.0** - Biblioteca JavaScript para construção de interfaces
+- **React Router DOM 7.9.5** - Roteamento para Single Page Applications
+- **CSS3** - Estilização com glassmorphism e animações
 
-### Code Splitting
+### Ferramentas de Desenvolvimento
+- **Create React App** - Configuração e build tools
+- **ES6+** - JavaScript moderno
+- **Custom Hooks** - Lógica reutilizável
+- **Responsive Design** - Mobile-first approach
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### API Externa
+- **TMDB API** - The Movie Database para dados de filmes
 
-### Analyzing the Bundle Size
+## 📁 Estrutura do Projeto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+src/
+├── components/           # Componentes reutilizáveis
+│   ├── Header.jsx       # Cabeçalho da aplicação
+│   ├── LoadingSpinner.jsx # Componente de loading
+│   └── ErrorMessage.jsx # Exibição de erros
+├── hooks/               # Hooks personalizados
+│   ├── useMovies.js     # Gerenciamento de filmes
+│   ├── useSearch.js     # Funcionalidade de busca
+│   ├── useMovieCategories.js # Categorias
+│   ├── useMovieDetail.js # Detalhes do filme
+│   └── useMovieUtils.js # Utilitários
+├── services/            # Serviços de API
+│   └── movies.service.jsx # Integração com TMDB
+├── views/               # Páginas da aplicação
+│   ├── Home.jsx         # Página inicial
+│   ├── Movies.jsx       # Lista de filmes
+│   ├── MovieDetail.jsx  # Detalhes do filme
+│   └── RootLayout.jsx   # Layout principal
+├── routes/              # Configuração de rotas
+│   └── Routes.jsx       # Definição das rotas
+└── styles/              # Arquivos CSS
+    ├── *.css           # Estilos por componente
+    └── index.css       # Estilos globais
+```
 
-### Making a Progressive Web App
+## 🎯 Funcionalidades
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 🏠 Página Inicial
+- Apresentação da aplicação
+- Cards informativos sobre funcionalidades
+- Call-to-action para explorar filmes
 
-### Advanced Configuration
+### 🎬 Exploração de Filmes
+- **Categorias disponíveis:**
+  - 🔥 Popular - Filmes em alta
+  - ⭐ Top Rated - Melhor avaliados
+  - 🎭 Upcoming - Em breve nos cinemas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 🔍 Busca Inteligente
+- Busca em tempo real
+- Validação de entrada
+- Resultados instantâneos
+- Mensagens de estado (loading, erro, sem resultados)
 
-### Deployment
+### 📄 Detalhes do Filme
+- **Informações completas:**
+  - 📖 Sinopse detalhada
+  - ⭐ Avaliação e número de votos
+  - 📅 Data de lançamento
+  - ⏱️ Duração formatada
+  - 💰 Orçamento e receita
+  - 🏷️ Gêneros
+  - 🏢 Produtoras
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🎨 Design System
 
-### `npm run build` fails to minify
+### Cores
+- **Gradiente principal**: #667eea → #764ba2
+- **Glassmorphism**: rgba(255, 255, 255, 0.1)
+- **Texto**: Branco com opacidades variadas
+- **Acentos**: #ff6b6b para erros, #ffc107 para ratings
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Tipografia
+- **Fonte principal**: Segoe UI, Tahoma, Geneva, Verdana
+- **Hierarquia**: h1 (2.5rem) → h3 (1.3rem) → body (1rem)
+- **Peso**: 300 (light) → 700 (bold)
+
+### Animações
+- **Transições**: 0.3s ease
+- **Hover effects**: translateY(-2px to -5px)
+- **Loading spinner**: Rotação contínua
+- **Glassmorphism**: backdrop-filter: blur(10px)
+
+## 📱 Responsividade
+
+- **Desktop**: Grid completo e sidebars
+- **Tablet**: Adaptação de layout e tamanhos
+- **Mobile**: Stack vertical e navegação otimizada
+
+**Breakpoints:**
+- Desktop: > 1024px
+- Tablet: 768px - 1024px  
+- Mobile: < 768px
+
+## 🧪 Scripts Disponíveis
+
+```bash
+# Desenvolvimento
+npm start          # Inicia o servidor de desenvolvimento
+
+# Build
+npm run build      # Cria build de produção
+
+# Testes
+npm test           # Executa testes em modo watch
+
+# Eject (não recomendado)
+npm run eject      # Ejeta configuração do CRA
+```
+
+## 🌍 Variáveis de Ambiente
+
+Crie um arquivo `.env` na raiz do projeto:
+
+```env
+# TMDB API Bearer Token (obrigatório)
+REACT_APP_MOVIES_API_BEARER_TOKEN=eyJhbGciOiJIUzI1NiJ9...
+
+# Opcional: URL base da API (padrão: https://api.themoviedb.org/3)
+REACT_APP_API_BASE_URL=https://api.themoviedb.org/3
+```
+
+## 🔧 Hooks Personalizados
+
+A aplicação utiliza hooks personalizados para reduzir duplicação de código:
+
+- **useMovies**: Gerenciamento de estado e API calls
+- **useSearch**: Funcionalidade de busca  
+- **useMovieCategories**: Categorização de filmes
+- **useMovieDetail**: Detalhes específicos
+- **useMovieUtils**: Funções utilitárias
+
+[Ver documentação completa dos hooks](./HOOKS.md)
+
+## 🚀 Deploy
+
+### Build de Produção
+```bash
+npm run build
+```
+
+### Opções de Deploy
+- **Vercel**: Conecte o repositório GitHub
+- **Netlify**: Arraste a pasta build ou conecte via Git
+- **GitHub Pages**: Configure GitHub Actions
+- **Firebase Hosting**: Use Firebase CLI
+
+## 🤝 Contribuindo
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+## 👨‍💻 Autor
+
+**Benevanio**
+- GitHub: [@Benevanio](https://github.com/Benevanio)
+- LinkedIn: [Benevanio](https://linkedin.com/in/benevanio)
+
+## 🙏 Agradecimentos
+
+- [The Movie Database (TMDB)](https://www.themoviedb.org/) - Pela excelente API gratuita
+- [Create React App](https://create-react-app.dev/) - Por facilitar a configuração inicial
+- [React Router](https://reactrouter.com/) - Por uma navegação elegante
+- Comunidade React - Por todo o suporte e recursos disponíveis
+
+---
+
+<div align="center">
+
+**⭐ Se este projeto te ajudou, considere dar uma estrela!**
+
+[🚀 Ver Demo](http://localhost:3000) | [📖 Documentação](./HOOKS.md) | [🐛 Reportar Bug](https://github.com/Benevanio/movies-spa-pos-grad/issues)
+
+</div>
